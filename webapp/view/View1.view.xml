@@ -1,31 +1,13 @@
-<mvc:View controllerName="appartments.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:w="sap.ui.webc.main" xmlns:l="sap.ui.layout">
-    <Page id="page" title="{i18n>title}">
+<mvc:View controllerName="appartments.controller.View1" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" displayBlock="true" xmlns="sap.m" xmlns:w="sap.ui.webc.main" xmlns:l="sap.ui.layout" xmlns:c="sap.suite.ui.microchart">
+    <Page id="page" title=" {i18n>title}">
         <!-- CreateDialog View is Loaded Below -->
         <mvc:XMLView id="_IDGenXMLView1" viewName="appartments.view.CreateDialog" />
         <!-- Table -->
         <ScrollContainer id="_IDGenScrollContainer1" horizontal="true">
-            <Table id="idProducts" selectionChange="onRowSelection" width="120%" items="{/APPARTMENTSHeadersSet}" alternateRowColors="true" growing="false" growingScrollToLoad="false" mode="SingleSelectMaster">
+            <Table id="idProducts" selectionChange="onRowSelection" width="100%" items="{/APPARTMENTSHeadersSet}" alternateRowColors="true" growing="false" growingScrollToLoad="false" mode="SingleSelectMaster">
                 <columns>
-                    <Column id="Id">
+                    <Column id="Id" width="50%">
                         <Text id="_IDGenText1" text="Identifiant" />
-                    </Column>
-                    <Column id="Desc">
-                        <Text id="_IDGenText2" text="Description" />
-                    </Column>
-                    <Column id="NbrPieces">
-                        <Text id="_IDGenText3" text="Nbr.Pieces" />
-                    </Column>
-                    <Column id="NbrChambres">
-                        <Text id="_IDGenText4" text="Nbr.Chambres" />
-                    </Column>
-                    <Column id="NbrSalleDeBains">
-                        <Text id="_IDGenText5" text="Salles de descriptionain" />
-                    </Column>
-                    <Column id="Superficie">
-                        <Text id="_IDGenText6" text="Superficie" />
-                    </Column>
-                    <Column id="Etage">
-                        <Text id="_IDGenText7" text="Etage" />
                     </Column>
                     <Column id="Garage">
                         <Text id="_IDGenText8" text="Garage" />
@@ -46,43 +28,33 @@
                 <items>
                     <ColumnListItem id="_IDGenColumnListItem1" press=".onRowPress">
                         <cells>
-                            <Text id="_IDGenText13" text="{Identifiant}" />
-                        </cells>
-                        <cells>
-                            <ExpandableText id="_IDGenExpandableText1" text="{Description}" maxCharacters="7" />
-                        </cells>
-                        <cells>
-                            <Text id="_IDGenText15" text="{NbrPieces}" />
-                        </cells>
-                        <cells>
-                            <Text id="_IDGenText16" text="{NbrChambres}" />
-                        </cells>
-                        <cells>
-                            <Text id="_IDGenText17" text="{NbrSalleDeBains}" />
-                        </cells>
-                        <cells>
-                            <Text id="_IDGenText18" text="{= parseInt(${Superficie})}" />
-                        </cells>
-                        <cells>
-                            <Text id="_IDGenText19" text="{Etage}" />
+                            <VBox id="_IDGenVBox1">
+                                <HBox id="_IDGenHBox1">
+                                    <Image id="_IDGenImage1" src="sap-icon://home" width="1.5rem" height="1.5rem" />
+                                    <Text id="_IDGenText13" text="{Identifiant}" />
+                                </HBox>
+                                <Text id="_IDGenText110" text="Adresse : {Description}" />
+                                <Text id="_IDGenText18" text="Superficie : {= parseInt(${Superficie})}" />
+                                <Text id="_IDGenText150" text="Nombre de Pièces : {NbrPieces}" />
+                                <Text id="_IDGenText16" text="Nombre de Chambres : {NbrChambres}" />
+                                <Text id="_IDGenText17" text="Nombre de Salles de Bain : {NbrSalleDeBains}" />
+                                <Text id="_IDGenText19" text="Etage : {Etage}" />
+                            </VBox>
                         </cells>
                         <cells>
                             <w:Badge id="_IDGenBadge1" colorScheme="{= ${Garage} === 'X' ? '6' : '1' }" text="{= ${Garage} === 'X' ? 'Avec' : 'Sans' }" />
                         </cells>
                         <cells>
                             <w:Badge id="_IDGenBadge2" colorScheme="{= ${Ascenseur} === 'X' ? '6' : '1' }" text="{= ${Ascenseur} === 'X' ? 'Avec' : 'Sans' }" />
-                            <!-- <Text id="_IDGenText21" text="{= ${Ascenseur} === 'X' ? 'Avec' : 'Sans' }"></Text> -->
                         </cells>
                         <cells>
                             <w:Badge id="_IDGenBadge3" colorScheme="{= ${Climatisation} === 'X' ? '6' : '1' }" text="{= ${Climatisation} === 'X' ? 'Avec' : 'Sans' }" />
-                            <!-- <Text id="_IDGenText22" text="{= ${Climatisation} === 'X' ? 'Avec' : 'Sans' }"></Text> -->
                         </cells>
                         <cells>
                             <Text id="_IDGenText23" text="{= parseInt(${PrixNuitee})} MAD" />
                         </cells>
                         <cells>
                             <w:Badge id="_IDGenBadge4" colorScheme="{= ${Disponible} === 'X' ? '8' : '2' }" text="{= ${Disponible} === 'X' ? 'Disponible' : 'Indisponible' }" />
-                            <!-- <Text id="_IDGenText24" text="{= ${Disponible} === 'X' ? 'Disponible' : 'Indisponible' }"></Text> -->
                         </cells>
                     </ColumnListItem>
                 </items>

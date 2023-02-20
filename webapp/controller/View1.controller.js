@@ -12,7 +12,8 @@ sap.ui.define([
 
         return Controller.extend("appartments.controller.View1", {
             onInit: function () {
-                // this.onReadAll();
+                this.onReadAll();
+                
             },
             onReadAll: function () {
                 const that = this;
@@ -21,7 +22,8 @@ sap.ui.define([
                     success: function (oData) {
                         // console.log(oData);
                         const jModel = new sap.ui.model.json.JSONModel(oData);
-                        that.getView("idProducts").setModel(jModel);
+                        console.log(jModel.oData);
+                        // that.getView("idProducts").setModel(jModel);
                     },
                     error: function (oError) {
                         console.log(oError);
@@ -33,6 +35,7 @@ sap.ui.define([
                 const that = this
                 const oModel = this.getOwnerComponent().getModel();
                 const oFilter = new sap.ui.model.Filter('NbrPieces', 'EQ', '03s')
+
                 oModel.read('/APPARTMENTSHeadersSet', {
                     filters: [oFilter],
                     success: function (oData) {
